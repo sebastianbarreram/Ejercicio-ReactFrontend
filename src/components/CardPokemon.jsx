@@ -3,6 +3,11 @@ import React, { useState } from "react";
 export const CardPokemon = ({pokemon, loading}) => {
     const [search, setSearch] = useState("");
 
+    const pokeInfo = async(res) => {
+        console.log(res)
+        window.location.href = `/pokeInfo/${res.id}`;
+    }
+
     return(
         <>
         
@@ -21,7 +26,7 @@ export const CardPokemon = ({pokemon, loading}) => {
                     .map((item) => {
                         return (
                                 <div className="col-md-3" key={item.id}>
-                                    <div className="card poke-card" >
+                                    <div className="card poke-card" onClick={()=> pokeInfo(item)} style={{"cursor":"pointer"}}>
                                         {/* <img className="card-img-top card-img" src={item.sprites.front_shiny} alt=""></img> */}
                                         <img className="card-img-top card-img" src={item.sprites.front_default} alt=""></img>
                                         <div className="card-body">
