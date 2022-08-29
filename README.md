@@ -35,6 +35,11 @@ Para desplegar el servidor de manera local usar el siguiente comando:
 
 Desde el navegador de preferencia ingresar a la url [http://localhost:3000](http://localhost:3000)
 
+## Despliegue
+Enlace de la aplicación desplegada en Heroku
+
+[https://ejercicioreactfrontend.herokuapp.com/](https://ejercicioreactfrontend.herokuapp.com/)
+
 ## Usuario registrado
 Este es el único usuario registrado:
 - Usuario:      sebas
