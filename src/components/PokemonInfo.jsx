@@ -23,7 +23,7 @@ function PokemonInfo() {
   return (
     <div>
       <Header />
-      <div className="row card-row" style={{ justifyContent: "center", "marginLeft": "0", "margiRight": "0" ,"marginTop": "10px" }}>
+      <div className="row card-row" style={{ justifyContent: "center", "marginLeft": "0", "marginRight": "0" ,"marginTop": "10px" }}>
         {loading ? (
           <h1>Loading...</h1>
         ) : (
