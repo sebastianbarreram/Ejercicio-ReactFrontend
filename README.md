@@ -35,3 +35,8 @@ Para desplegar el servidor de manera local usar el siguiente comando:
 
 Desde el navegador de preferencia ingresar a la url [http://localhost:3000](http://localhost:3000).
 
+## Usuario registrado
+Este es el único usuario registrado:
+- Usuario:      sebas
+- Contraseña:   ssssss
+
