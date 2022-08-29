@@ -13,14 +13,13 @@ export default function Home() {
   }, []);
 
   const getPokemons = async () => {
-    const response = await Axios.get("pokemon?limit=10");
-    console.log("hizo primer get")
+    const response = await Axios.get("pokemon?limit=150");
     console.log(response.data.results);
     // setPokeList(response.data.results);
    response.data.results.forEach(async (element) => {
    //   console.log(element);
      const response2 = await Axios.get(element.url);
-     console.log(response2.data.forms[0].name)
+    //  console.log(response2.data.forms[0].name)
      setPokeData((state) => {
        state = [...state, response2.data];
        state.sort((a, b) => (a.id > b.id ? 1 : -1));
@@ -30,7 +29,8 @@ export default function Home() {
     setLoading(false)
   };
 
-  return (<div className="container">Home
+  return (
+  <div className="container">
   <CardPokemon pokemon={pokeData} loading={loading}/>
   </div>
   );
