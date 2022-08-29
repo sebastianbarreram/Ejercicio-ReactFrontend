@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import logo from '../assets/logo.jpeg';
+import logo from "../assets/logo.jpeg";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  sessionStorage.setItem("logged", false);
 
   const login = async (e) => {
     e.preventDefault();
 
-    if (email === "seb" && password === "ssssss") {
-      Window.alert("Error: Correo o contraseña incorrectos");
-    } else {
-      sessionStorage.setItem("email", email);
+    if (user === "sebas" && password === "ssssss") {
+      console.log(user);
+      sessionStorage.setItem("user", user);
+      sessionStorage.setItem("logged", true);
+      window.alert("Bienvenido " + user);
       window.location.href = "/";
-      Window.alert("Bienvenido" + email);
+    } else {
+      window.alert("Error: Correo o contraseña incorrectos");
     }
   };
 
@@ -24,18 +27,24 @@ export default function Login() {
           <div className="card">
             <div className="card-header text-center">
               <h4>Login</h4>
-              <img src={logo} width="50%" height="auto" className="d-inline-block align-top" alt=""/>
+              <img
+                src={logo}
+                width="50%"
+                height="auto"
+                className="d-inline-block align-top"
+                alt=""
+              />
             </div>
             <div className="card-body">
               <form onSubmit={login}>
                 <div className="form-group">
-                  <label>Email</label>
+                  <label>User</label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
                     autoFocus
                     required
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setUser(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
