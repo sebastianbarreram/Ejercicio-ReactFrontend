@@ -4,7 +4,6 @@ import logo from "../assets/logo.jpeg";
 export default function Login() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  sessionStorage.setItem("logged", false);
 
   const login = async (e) => {
     e.preventDefault();
@@ -16,7 +15,7 @@ export default function Login() {
       window.alert("Bienvenido " + user);
       window.location.href = "/";
     } else {
-      window.alert("Error: Correo o contraseña incorrectos");
+      window.alert("Error: Usuario o contraseña incorrectos");
     }
   };
 

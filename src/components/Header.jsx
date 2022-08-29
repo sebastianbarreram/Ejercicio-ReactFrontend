@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.jpeg";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const logged = useState(sessionStorage.getItem("logged"));
-  console.log(logged);
+  const [logged, setLogged] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("logged")) {
+      setLogged(true);
+    }
+  }, []);
 
   const salir = () => {
     sessionStorage.clear();
@@ -27,7 +32,10 @@ export default function Header() {
           />
           Pokemon List
         </a>
-        <div className="navbar-collapse collapse" style={{"justify-content": "right"}}>
+        <div
+          className="navbar-collapse collapse"
+          style={{ "justifyContent": "right" }}
+        >
           {logged ? (
             <div className="nav navbar-nav" id="navbarSupportedContent">
               <div className="nav-item nav-link">
@@ -43,7 +51,7 @@ export default function Header() {
             </div>
           ) : (
             <div className="nav navbar-nav" id="navbarSupportedContent">
-              <Link className="nav-item nav-link" to="/iniciosesion">
+              <Link className="nav-item nav-link" to="/login">
                 <div className="fas fa-user"></div> Login
               </Link>
             </div>
