@@ -38,7 +38,7 @@ Desde el navegador de preferencia ingresar a la url [http://localhost:3000](http
 ## Depliegue
 Enlace de la aplicación desplegada en Netlify
 
-[https://ejercicioreactfrontend.netlify.app/login](https://ejercicioreactfrontend.netlify.app/login)
+[https://ejercicioreactfrontend.netlify.app](https://ejercicioreactfrontend.netlify.app)
 
 ## Usuario registrado
 Este es el único usuario registrado:
