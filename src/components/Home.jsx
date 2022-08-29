@@ -1,6 +1,6 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { CardPokemon } from "./cards/CardPokemon";
+import { CardPokemon } from "./CardPokemon";
 
 export default function Home() {
 //   const [pokeList, setPokeList] = useState([]);
@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
 
   const getPokemons = async () => {
-    const response = await Axios.get("pokemon?limit=150");
+    const response = await Axios.get("pokemon?limit=600");
     console.log(response.data.results);
     // setPokeList(response.data.results);
    response.data.results.forEach(async (element) => {

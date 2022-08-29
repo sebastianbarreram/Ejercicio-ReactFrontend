@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const CardPokemon = ({pokemon, loading}) => {
+    const [search, setSearch] = useState("");
 
     return(
         <>
+        
+        <form className=" form-group">
+            <input className="form-control " type="search" placeholder="Search" onChange={(e)=>setSearch(e.target.value)}/>
+         </form>
             <div className="row card-row">
                 {
                     loading ? <h1>Loading...</h1> :
-                    pokemon.map((item) => {
+                    pokemon.filter((item)=>{
+                        if (search === "" || item.name.toLowerCase().includes(search.toLowerCase())) {
+                            return item
+                        }
+                        return null;
+                    })                    
+                    .map((item) => {
                         return (
                                 <div className="col-md-3" key={item.id}>
                                     <div className="card poke-card" >
