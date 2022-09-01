@@ -2,15 +2,97 @@ import React, { useState } from "react";
 
 export const CardPokemon = ({pokemon, loading}) => {
     const [search, setSearch] = useState("");
+    const [lowerLimit, setLowerLimit] = useState(0);
+    const [upperLimit, setUpperLimit] = useState(1155);
+
+    const colours = {
+        normal: '#A8A77A',
+        fire: '#EE8130',
+        water: '#6390F0',
+        electric: '#F7D02C',
+        grass: '#7AC74C',
+        ice: '#96D9D6',
+        fighting: '#C22E28',
+        poison: '#A33EA1',
+        ground: '#E2BF65',
+        flying: '#A98FF3',
+        psychic: '#F95587',
+        bug: '#A6B91A',
+        rock: '#B6A136',
+        ghost: '#735797',
+        dragon: '#6F35FC',
+        dark: '#705746',
+        steel: '#B7B7CE',
+        fairy: '#D685AD',
+    };
+
+    const generation = {
+        I:{
+            lowerLimit:0,
+            upperLimit:152
+        } ,
+        II:{
+            lowerLimit:151,
+            upperLimit:252
+        } ,
+        III:{
+            lowerLimit:251,
+            upperLimit:387,
+        },
+        IV:{
+            lowerLimit:386,
+            upperLimit:494
+        } ,
+        V:{
+            lowerLimit:493,
+            upperLimit:650
+        } ,
+        VI:{
+            lowerLimit:649,
+            upperLimit:722,
+        },
+        VII:{
+            lowerLimit:721,
+            upperLimit:810
+        } ,
+        VIII:{
+            lowerLimit:809,
+            upperLimit:906
+        } ,
+        Other:{
+            lowerLimit:10000,
+            upperLimit:10250,
+        },
+        All:{
+            lowerLimit:0,
+            upperLimit:10250
+        }
+    };
 
     const pokeInfo = async(res) => {
         console.log(res)
         window.location.href = `/pokeInfo/${res.id}`;
     }
 
+    const handleClick=(event)=>{
+        setLowerLimit(generation[event.target.name].lowerLimit)
+        setUpperLimit(generation[event.target.name].upperLimit)
+    }
+
     return(
         <>
-        
+        <div className="btn-group" role="group" aria-label="Basic example"style={{"display": "flex"}}>
+            <button className="btn btn-secondary" name="I" onClick={handleClick}>Generation I</button>
+            <button className="btn btn-secondary" name="II" onClick={handleClick}>Generation II</button>
+            <button className="btn btn-secondary" name="III" onClick={handleClick}>Generation III</button>
+            <button className="btn btn-secondary" name="IV" onClick={handleClick}>Generation IV</button>
+            <button className="btn btn-secondary" name="V" onClick={handleClick}>Generation V</button>
+            <button className="btn btn-secondary" name="VI" onClick={handleClick}>Generation VI</button>
+            <button className="btn btn-secondary" name="VII" onClick={handleClick}>Generation VII</button>
+            <button className="btn btn-secondary" name="VIII" onClick={handleClick}>Generation VIII</button>
+            <button className="btn btn-secondary" name="Other" onClick={handleClick}>Other</button>
+            <button className="btn btn-secondary" name="All" onClick={handleClick}>All</button>
+        </div>
         <form className=" form-group">
             <input className="form-control " type="search" placeholder="Search" onChange={(e)=>setSearch(e.target.value)}/>
          </form>
@@ -18,7 +100,7 @@ export const CardPokemon = ({pokemon, loading}) => {
                 {
                     loading ? <h1>Loading...</h1> :
                     pokemon.filter((item)=>{
-                        if (search === "" || item.name.toLowerCase().includes(search.toLowerCase())) {
+                        if ((search === "" || item.name.toLowerCase().includes(search.toLowerCase())) && item.id>lowerLimit && item.id<upperLimit) {
                             return item
                         }
                         return null;
@@ -35,26 +117,6 @@ export const CardPokemon = ({pokemon, loading}) => {
                                                 {
                                                     item.types.map(
                                                         element=>{
-                                                            const colours = {
-                                                                normal: '#A8A77A',
-                                                                fire: '#EE8130',
-                                                                water: '#6390F0',
-                                                                electric: '#F7D02C',
-                                                                grass: '#7AC74C',
-                                                                ice: '#96D9D6',
-                                                                fighting: '#C22E28',
-                                                                poison: '#A33EA1',
-                                                                ground: '#E2BF65',
-                                                                flying: '#A98FF3',
-                                                                psychic: '#F95587',
-                                                                bug: '#A6B91A',
-                                                                rock: '#B6A136',
-                                                                ghost: '#735797',
-                                                                dragon: '#6F35FC',
-                                                                dark: '#705746',
-                                                                steel: '#B7B7CE',
-                                                                fairy: '#D685AD',
-                                                            };
                                                             const type=element.type.name;
                                                             return (
                                                                     <button type="button" className="btn btn-primary" 

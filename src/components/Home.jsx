@@ -12,7 +12,7 @@ export default function Home() {
   }, []);
 
   const getPokemons = async () => {
-    const response = await Axios.get("pokemon?limit=150");
+    const response = await Axios.get("pokemon?limit=1154");
     console.log(response.data.results);
     // setPokeList(response.data.results);
     response.data.results.forEach(async (element) => {

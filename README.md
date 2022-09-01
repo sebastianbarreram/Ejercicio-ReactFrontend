@@ -8,7 +8,7 @@ Vamos a mostrar un listado de Pokemon en donde se muestre la información de cad
 
 Como requerimientos del sistema, se tiene lo siguiente:
 
-- Conectar con API https://pokeapi.co/api/v2/ y traer una lista de 150 pokemons tener en cuenta este UI.
+- Conectar con API https://pokeapi.co/api/v2/ y traer una lista de 1154 pokemons tener en cuenta este UI.
 
 - Al hacer click en una de las tarjetas de los pokémon debe ir a una página con los datos de el pokemon en cuestión, con posibilidad de regresar a la lista mencionada anteriormente.
 
