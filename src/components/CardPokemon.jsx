@@ -81,17 +81,22 @@ export const CardPokemon = ({pokemon, loading}) => {
 
     return(
         <>
-        <div className="btn-group" role="group" aria-label="Basic example"style={{"display": "flex"}}>
-            <button className="btn btn-secondary" name="I" onClick={handleClick}>Generation I</button>
-            <button className="btn btn-secondary" name="II" onClick={handleClick}>Generation II</button>
-            <button className="btn btn-secondary" name="III" onClick={handleClick}>Generation III</button>
-            <button className="btn btn-secondary" name="IV" onClick={handleClick}>Generation IV</button>
-            <button className="btn btn-secondary" name="V" onClick={handleClick}>Generation V</button>
-            <button className="btn btn-secondary" name="VI" onClick={handleClick}>Generation VI</button>
-            <button className="btn btn-secondary" name="VII" onClick={handleClick}>Generation VII</button>
-            <button className="btn btn-secondary" name="VIII" onClick={handleClick}>Generation VIII</button>
-            <button className="btn btn-secondary" name="Other" onClick={handleClick}>Other</button>
-            <button className="btn btn-secondary" name="All" onClick={handleClick}>All</button>
+        <div className="dropdown">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Generation...
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button className="dropdown-item" name="I" onClick={handleClick}>Generation I</button>
+            <button className="dropdown-item" name="II" onClick={handleClick}>Generation II</button>
+            <button className="dropdown-item" name="III" onClick={handleClick}>Generation III</button>
+            <button className="dropdown-item" name="IV" onClick={handleClick}>Generation IV</button>
+            <button className="dropdown-item" name="V" onClick={handleClick}>Generation V</button>
+            <button className="dropdown-item" name="VI" onClick={handleClick}>Generation VI</button>
+            <button className="dropdown-item" name="VII" onClick={handleClick}>Generation VII</button>
+            <button className="dropdown-item" name="VIII" onClick={handleClick}>Generation VIII</button>
+            <button className="dropdown-item" name="Other" onClick={handleClick}>Other</button>
+            <button className="dropdown-item" name="All" onClick={handleClick}>All</button>
+            </div>
         </div>
         <form className=" form-group">
             <input className="form-control " type="search" placeholder="Search" onChange={(e)=>setSearch(e.target.value)}/>
