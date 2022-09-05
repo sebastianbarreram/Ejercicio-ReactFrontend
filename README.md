@@ -40,6 +40,10 @@ Enlace de la aplicación desplegada en Heroku
 
 [https://ejercicioreactfrontend.herokuapp.com/](https://ejercicioreactfrontend.herokuapp.com/)
 
+Enlace de la aplicación desplegada en Firebase
+
+[https://pokedexreactapp.web.app/](https://pokedexreactapp.web.app/)
+
 ## Usuario registrado
 Este es el único usuario registrado:
 - Usuario:      sebas
