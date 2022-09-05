@@ -19,7 +19,7 @@ test("render 2 input components", () => {
   expect(getByLabelText("Password")).toBeInTheDocument();
 });
 
-test("sign in with a register user", () => {
+test("sign in with a register user", async () => {
   const component = render(<Login />);
 
   const button = component.getByRole("button");
