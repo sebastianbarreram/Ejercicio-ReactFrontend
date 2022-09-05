@@ -35,22 +35,24 @@ export default function Login() {
               />
             </div>
             <div className="card-body">
-              <form onSubmit={login}>
+              <form onSubmit={login} id="form">
                 <div className="form-group">
-                  <label>User</label>
+                  <label id="user" htmlFor="form">User</label>
                   <input
                     type="text"
                     className="form-control"
+                    aria-labelledby="user"
                     autoFocus
                     required
                     onChange={(e) => setUser(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
-                  <label>Password</label>
+                  <label id="password" htmlFor="form">Password</label>
                   <input
                     type="password"
                     className="form-control"
+                    aria-labelledby='password'
                     required
                     onChange={(e) => setPassword(e.target.value)}
                   />
